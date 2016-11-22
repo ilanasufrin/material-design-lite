@@ -152,7 +152,7 @@ at what we just wrote.
 The two main things to notice are the `data-mdl-auto-init` attributes, as well as the final script
 tag, which simply calls `window.mdl.autoInit()`. Unlike MDLv1, **MDLv2 does not
 instantiate any components automatically.** This avoids the headaches involved with hacking around
-lifecycle handlers that we with MDLv1 when trying to use it within more complex sites.
+lifecycle handlers that we saw with MDLv1 when trying to use it within more complex sites.
 
 When `mdl.autoInit()` is called, it looks for all elements with a `data-mdl-auto-init` attribute,
 and attaches the MDL JS Component with the given class name to that element (the actual
