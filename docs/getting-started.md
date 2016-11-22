@@ -75,7 +75,7 @@ the duration of this guide.
 
 Let's take a look at a few aspects of the above HTML.
 
-* **No javascript necessary (yet)** - Because we aren't using any dynamic components, we need only
+* **No javascript necessary (yet)** - Because we aren't using any dynamic components, we only need
   to include the MDLv2 CSS so that we can apply the proper css classes to our elements. With MDLv2,
   javascript is only necessary for dynamic components whose UI needs to be made aware of events
   happening on the page which can't be hooked into using CSS. As we develop our greeting app, we'll
@@ -92,11 +92,11 @@ Let's take a look at a few aspects of the above HTML.
 
 ### Adding in javascript for dynamic components
 
-Now that we've gotten the gist of MDLv2, let's build our greeting app. Our greeting app consists of
-a two inputs fields for a first and last name, as well as a submit button. Because material design
+Now that we've gotten the gist of MDLv2, let's build our greeting app. The app consists of
+a two input fields for a first and last name, as well as a submit button. Because material design
 text input fields contain a lot of functionality, we must include javascript to provide a
-full-fidelity experience for them. Furthermore, it would be nice if our submit button contained a
-ripple. We can include that using javascript as well.
+full-fidelity experience for them. Furthermore, it would be nice if our submit button featured a
+ripple effect. We can include that using javascript as well.
 
 > Note that we currently have an [issue out](https://github.com/google/material-design-lite/issues/4614) to integrate ripples directly into buttons.
 
@@ -150,13 +150,13 @@ well as a button that - when pressed - displays a material ink ripple. Let's go 
 at what we just wrote.
 
 The two main things to notice are the `data-mdl-auto-init` attributes, as well as the final script
-tag, which simply calls `window.mdl.autoInit()`. Unlike MDLv1, **MDLv2 does not automatically
+tag, which simply calls `window.mdl.autoInit()`. Unlike MDLv1, **MDLv2 does not
 instantiate any components automatically.** This avoids the headaches involved with hacking around
-lifecycle handlers that we saw a lot with MDLv1 when trying to use it within more complex sites.
+lifecycle handlers that we with MDLv1 when trying to use it within more complex sites.
 
 When `mdl.autoInit()` is called, it looks for all elements with a `data-mdl-auto-init` attribute,
-and initializes attaches the MDL JS Component with the given class name to that element (the actual
-mechanics are a bit more complicated, but for now this is essentially all you need to understand
+and attaches the MDL JS Component with the given class name to that element (the actual
+mechanics are a bit more complicated, but for now this is essentially all you need to understand about
 what it's doing). So when it sees `MDLTextfield`, it instantiates a [MDLTextfield](../packages/mdl-textfield) instance
 to the corresponding elements. It does the same thing for the button, attaching a [MDLRipple](../packages/mdl-ripple)
 instance to the element.
@@ -164,7 +164,7 @@ instance to the element.
 It is worth noting that `mdl.autoInit` is provided _purely_ as a convenience function, and is not
 required to actually use the components. It is, however, the simplest way to get up and running
 quickly, and recommended for static sites that use the comprehensive `material-design-lite` library.
-Speaking of, this is a great time to talk about a fundamental aspect of MDLv2:
+Speaking of which, this is a great time to talk about a fundamental aspect of MDLv2:
 
 #### All components are modular
 
@@ -174,7 +174,7 @@ Even the `autoInit()` function is its [own package](../packages/mdl-auto-init), 
 `material-design-lite` package uses to register all of the individual components to their names used
 within `data-mdl-auto-init`. Each component can be used as a standalone package, and can be mixed
 and matched at will. This allows for custom builds requiring the minimum possible amount of CSS/JS
-code necessary. It also means that MDLv2 works extremely well with module loading systems and modern
+code. It also means that MDLv2 works extremely well with module loading systems and modern
 front-end toolchains.
 
 ### Adding the business logic
@@ -242,8 +242,8 @@ fields are now a nice, dark shade of blue.
 
 ### Finishing Touches: Adding some custom styles
 
-Every site is different, and we cannot pretend that we can build a user interface library to
-accommodate every single design choice a user may want. Because MDLv2 uses plain old CSS, it is
+Every site is different, and we cannot hope to build a user interface library that
+anticipates every design choice a user may want. Because MDLv2 uses plain old CSS, it is
 trivial to customize and modify our styles to your liking. Let's change the ripple color to be a
 more opaque shade of white, as well as add some auxiliary styles to bump up the vertical spacing
 between the form fields and the submit button. Add the following the `<style>` tag within `<head>`:
@@ -260,15 +260,15 @@ between the form fields and the submit button. Add the following the `<style>` t
 ```
 
 Congrats! You've built your first MDLv2 app! In the process, you've learned the basics of MDL,
-how to easily add components to a page, and how to customize and them MDL to your liking.
+how to easily add components to a page, and how to customize and theme MDL to your liking.
 
 ## Next Steps
 
 If you're looking to incorporate MDL Components into a framework like Angular or React, check our
 [framework integration guide](./integrating-into-frameworks.md). You can also take a look at our
-[examples](../examples) directory which contain examples integrating MDLv2 components into popular
+[examples](../examples) directory which contains examples integrating MDLv2 components into popular
 front-end frameworks.
 
 If you'd like to contribute to
-MDLv2 and build your own components, or extend one of ours to fit your liking, check out our guide
+MDLv2 and build your own components, or extend one of ours to fit your own purposes, check out our guide
 on [how to build a component](./how-to-build-a-component.md).
